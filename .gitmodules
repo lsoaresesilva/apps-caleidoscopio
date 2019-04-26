@@ -1,0 +1,3 @@
+[submodule "cliente/src/model/firestore"]
+	path = cliente/src/model/firestore
+	url = https://github.com/lsoaresesilva/angularfire-document-mapper.git

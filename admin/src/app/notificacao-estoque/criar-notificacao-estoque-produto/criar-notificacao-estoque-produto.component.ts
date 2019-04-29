@@ -35,7 +35,7 @@ export class CriarNotificacaoEstoqueProdutoComponent implements OnInit {
     this.notificacao.save().subscribe(resultado=>{
       // TODO: mudar para o message service
       alert("Alerta de notificação de lembrete de estoque cadastrado.");
-      this.router.navigate(["notificacao-estoque/listar"]);
+      this.router.navigate(["main", { outlets: { main: ['notificacao-estoque-listagem'] } }])
     })
   }
 

@@ -25,12 +25,13 @@ import { MensagensAvisoService } from './calculadora/mensagens-aviso.service';
 
 const routes: Routes = [
   { path: "", component: AppComponent }, 
-  { path: 'notificacao-estoque/criar', component: CriarNotificacaoEstoqueProdutoComponent },
-  { path: 'notificacao-estoque/listar', component: ListarNotificacaoEstoqueProdutoComponent },
-  { path: 'cliente/cadastro', component: CadastroClienteComponent },
-  { path: 'cliente/listagem', component: ListagemClienteComponent },
+
   {
     path: "main", component: MainComponent, children: [
+      { path: 'notificacao-estoque-cadastro', component: CriarNotificacaoEstoqueProdutoComponent, outlet: "main" },
+      { path: 'notificacao-estoque-listagem', component: ListarNotificacaoEstoqueProdutoComponent, outlet: "main" },
+      { path: 'cliente-cadastro', component: CadastroClienteComponent, outlet: "main" },
+      { path: 'cliente-listagem', component: ListagemClienteComponent, outlet: "main" },
       {
         path: 'calculadora', component: MainCalculadoraComponent, outlet: "main", children: [
           { path: 'manual-upload', component: ManualUploadComponent, outlet: "produtoupload" },

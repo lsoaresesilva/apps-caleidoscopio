@@ -25,7 +25,7 @@ export class CadastroClienteComponent implements OnInit {
     if( this.cliente.validar() ){
       this.cliente.save().subscribe(resultado=>{
         alert("Cliente salvo com sucesso");
-        this.router.navigate(["cadastro/listar"]);
+        this.router.navigate(["main", { outlets: { main: ['cliente-listagem'] } }])
       })
     }else{
       alert("Para salvar primeiro preencha os dados do cliente."); // TODO: usar o messageservice do Primeng

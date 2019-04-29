@@ -1,0 +1,67 @@
+<div class="p-grid">
+  <div class="p-col-1">
+  </div>
+  <div class="p-col-2">
+    Nome
+  </div>
+  <div class="p-col-8">
+      <input type="text" class="form-control" id="name" placeholder="Nome do produto" #productName pInputText>
+  </div>
+</div>
+
+<div class="p-grid">
+    <div class="p-col-1">
+    </div>
+    <div class="p-col-2">
+      IPI
+    </div>
+    <div class="p-col-8">
+        <input type="number" value="0" class="form-control" id="ipi" placeholder="Valor sem o %" #productIPI pInputText>
+    </div>
+</div>
+
+<div class="p-grid">
+    <div class="p-col-1">
+    </div>
+    <div class="p-col-2">
+      Custo
+    </div>
+    <div class="p-col-8">
+        <input type="number" class="form-control" id="cost" placeholder="Quanto custou o produto?" #productCost pInputText>
+    </div>
+</div>
+  
+<div class="p-grid">
+    <div class="p-col-1">
+    </div>
+    <div class="p-col-2">
+        <p-button (click)="addProduct(productName, productCost, productIPI)" label="Adicionar"></p-button>
+    </div>
+</div>
+
+<div class="p-grid">
+    <div class="p-col-1">
+    </div>
+    <div class="p-col-11">
+        <div *ngIf="nfeService.produtos.length > 0">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr >
+                  <th style="width:40%" class="text-center">Nome do produto</th>
+                  <th style="width:15%" class="text-center">Valor de compra</th>
+                  <th style="width:10%" class="text-center">IPI</th>
+                  <th style="width:10%" class="text-center">Excluir</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let produto of nfeService.produtos; let rowIndex=index">
+                  <td>{{produto.descricao}}</td>
+                  <td>R$ {{produto.valorUnitario}}</td>
+                  <td>{{produto.ipi}}</td>
+                  <p-button (click)="removerProduto(rowIndex)" icon="pi pi-trash"></p-button>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+</div>

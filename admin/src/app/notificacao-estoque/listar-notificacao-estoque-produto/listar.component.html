@@ -1,0 +1,51 @@
+<p-table [value]="notificacoes" selectionMode="single" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Cliente</th>
+          <th>Código Produto</th>
+          <th>Notificado</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-notificacao >
+      <tr [pSelectableRow]="notificacao">
+          <td>{{notificacao.cliente.nome}}</td>
+          <td>{{notificacao.codigoProduto}}</td>
+          <td>{{notificacao.notificado}}</td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog header="Notificação" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '300px'}">
+  <div class="ui-g ui-fluid" *ngIf="notificacao">
+      <div class="ui-g-12">
+          <div class="ui-g-4">
+              <label for="vin">Cliente</label>
+          </div>
+          <div class="ui-g-8">
+              <input pInputText id="vin" [(ngModel)]="notificacao.cliente.nome" />
+          </div>
+      </div>
+      <div class="ui-g-12">
+          <div class="ui-g-4">
+              <label for="year">Código Produto</label>
+          </div>
+          <div class="ui-g-8">
+              <input pInputText id="year" [(ngModel)]="notificacao.codigoProduto" />
+          </div>
+      </div>
+      <div class="ui-g-12">
+          <div class="ui-g-4">
+              <label for="brand">Notificado</label>
+          </div>
+          <div class="ui-g-8">
+            <p-checkbox [(ngModel)]="notificacao.notificado" binary="true"></p-checkbox>
+          </div>
+      </div>
+  </div>
+  <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+          <button type="button" pButton icon="fa fa-close" (click)="deletar()" label="Deletar"></button>
+          <button type="button" pButton icon="fa fa-check" (click)="atualizar()" label="Atualizar"></button>
+      </div>
+  </p-footer>
+</p-dialog>

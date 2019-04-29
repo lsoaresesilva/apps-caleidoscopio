@@ -2,6 +2,7 @@ import {NFE} from './nfe'
 
 export class Produto{
 
+    codigo;
     descricao:String;
     quantidade:number;
     valorUnitario:number;

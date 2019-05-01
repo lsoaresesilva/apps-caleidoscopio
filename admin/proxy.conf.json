@@ -1,0 +1,10 @@
+{
+    "/authorize": {
+      "target": "https://developers.tagplus.com.br",
+      "secure": true,
+      "pathRewrite": {
+      "^/authorize": ""
+    },
+      "changeOrigin": true
+    }
+  }

@@ -13,5 +13,6 @@ export class AppComponent {
 
   constructor(private messageService:MensagensAvisoService){
     this.msgs = this.messageService.mensagens;
+    
   }
 }

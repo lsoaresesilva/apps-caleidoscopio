@@ -21,6 +21,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NotificacaoEstoqueModule } from '../notificacao-estoque/notificacao-estoque.module';
 
+import { HttpClientModule } from  '@angular/common/http';
+
 @NgModule({
   declarations: [MainCalculadoraComponent,
     FileUploadComponent,
@@ -44,7 +46,8 @@ import { NotificacaoEstoqueModule } from '../notificacao-estoque/notificacao-est
     InputTextModule,
     MessageModule,
     MessagesModule,
-    NotificacaoEstoqueModule
+    NotificacaoEstoqueModule,
+    HttpClientModule
   ],
   exports:[MainCalculadoraComponent, ManualUploadComponent, ProductUploadComponent],
   providers:[NotaFiscalEletronicaService],

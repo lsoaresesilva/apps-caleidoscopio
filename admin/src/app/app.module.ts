@@ -22,6 +22,8 @@ import { MainComponent } from './main/main.component';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { MensagensAvisoService } from './calculadora/mensagens-aviso.service';
+import { AutenticacaoTagplusComponent } from './autenticacao-tagplus/autenticacao-tagplus.component';
+import { ApiService } from './tagplus/api.service';
 
 const routes: Routes = [
   { path: "", component: AppComponent }, 
@@ -44,7 +46,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, MainComponent
+    AppComponent, MainComponent, AutenticacaoTagplusComponent
   ],
   imports: [
     FormsModule,
@@ -58,7 +60,7 @@ const routes: Routes = [
     MessagesModule,
     RouterModule.forRoot(routes, { useHash: false })
   ],
-  providers: [MensagensAvisoService],
+  providers: [MensagensAvisoService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/primeng';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../tagplus/api.service';
 
 @Component({
   selector: 'app-main',
@@ -11,9 +13,23 @@ export class MainComponent implements OnInit {
 
   items: MenuItem[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private api: ApiService) {
+
+    console.log("main")
+
+   }
 
   ngOnInit() {
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      let codigo = params['code'];
+      if (codigo != undefined) {
+        this.api.autenticar(codigo).subscribe(()=>{
+          this.api.vendas({dia:12, mes:6, ano:2018}, {dia:20, mes:6, ano:2018});
+        })
+      }
+
+    });
 
     this.items = [
       {

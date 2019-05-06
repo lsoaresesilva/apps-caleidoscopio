@@ -24,6 +24,9 @@ import {MessageModule} from 'primeng/message';
 import { MensagensAvisoService } from './calculadora/mensagens-aviso.service';
 import { AutenticacaoTagplusComponent } from './autenticacao-tagplus/autenticacao-tagplus.component';
 import { ApiService } from './tagplus/api.service';
+import { PedidoNamoradosComponent } from './pedido/pedido-namorados/pedido-namorados.component';
+import { PedidoModule } from './pedido/pedido.module';
+import { PedidoContinuoComponent } from './pedido/pedido-continuo/pedido-continuo.component';
 
 const routes: Routes = [
   { path: "", component: AppComponent }, 
@@ -34,6 +37,7 @@ const routes: Routes = [
       { path: 'notificacao-estoque-listagem', component: ListarNotificacaoEstoqueProdutoComponent, outlet: "main" },
       { path: 'cliente-cadastro', component: CadastroClienteComponent, outlet: "main" },
       { path: 'cliente-listagem', component: ListagemClienteComponent, outlet: "main" },
+      { path: 'pedidos', component: PedidoContinuoComponent, outlet: "main" },
       {
         path: 'calculadora', component: MainCalculadoraComponent, outlet: "main", children: [
           { path: 'manual-upload', component: ManualUploadComponent, outlet: "produtoupload" },
@@ -58,6 +62,7 @@ const routes: Routes = [
     NotificacaoEstoqueModule,
     MessagesModule,
     MessagesModule,
+    PedidoModule,
     RouterModule.forRoot(routes, { useHash: false })
   ],
   providers: [MensagensAvisoService, ApiService],

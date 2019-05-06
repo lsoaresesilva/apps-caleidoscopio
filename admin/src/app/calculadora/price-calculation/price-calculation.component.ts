@@ -18,7 +18,7 @@ export class PriceCalculationComponent implements OnInit {
          'Access-Control-Allow-Origin':'*'
       })
     };
-    /*this.http.post("https://developers.tagplus.com.br/authorize?response_type=code&client_id=d1bpJLukHoX9ppCG87iFrvUXPTw9CO8L&scope=write:produtos+read:pedidos", httpOptions).subscribe(resultado=>{
+    /*this.http.post("https://developers.tagplus.com.br/authorize?response_type=code&client_id=oX6QIY14uNv9QPbGeMQ0Itxw4RpYrMVm&scope=write:vendas+read:pedidos", httpOptions).subscribe(resultado=>{
       console.log(resultado);
     })*/
 

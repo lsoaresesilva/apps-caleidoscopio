@@ -81,8 +81,8 @@ export class NotaFiscalEletronicaService {
       
       forkJoin(consultas).subscribe(resultados=>{
         resultados.forEach(solicitacao=>{
-          if(solicitacao.length > 0 ){
-            solicitacao.forEach(s=>{
+          if(solicitacao["length"] > 0 ){
+            solicitacao["forEach"](s=>{
               this.notificacoes.push(s);
             });
           }

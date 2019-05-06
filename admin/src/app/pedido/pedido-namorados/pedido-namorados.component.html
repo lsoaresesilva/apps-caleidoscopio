@@ -1,0 +1,15 @@
+<table>
+  <thead>
+    <th>Categoria</th>
+    <th>2017</th>
+    <th>2018</th>
+    <th>Estoque atual</th>
+  </thead>
+  <tr *ngFor="let categoria of vendasOrganizadasPorAno | keyvalue">
+    <td>{{categoria.key}} </td>
+    <td>{{categoria.value["doismil17"]}}</td>
+    <td>{{categoria.value["doismil18"]}}</td>
+    <td><span *ngIf="categoria.value['estoque'] != undefined">{{categoria.value["estoque"]}}</span></td>
+  </tr>
+
+</table>

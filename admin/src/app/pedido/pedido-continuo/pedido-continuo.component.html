@@ -1,0 +1,19 @@
+<p-progressSpinner *ngIf="carregandoProdutos == true"></p-progressSpinner>
+<p-table [value]="vendasOrganizadasPorPeriodo" sortField="pedido" sortMode="single">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Categoria</th>
+            <th>Media</th>
+            <th>Estoque atual</th>
+            <th>Pedido</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-categoria>
+        <tr>
+            <td>{{categoria.categoria}}</td>
+            <td>{{categoria.media}}</td>
+            <td>{{categoria.estoque}}</td>
+            <td>{{categoria.pedido}}</td>
+        </tr>
+    </ng-template>
+</p-table>

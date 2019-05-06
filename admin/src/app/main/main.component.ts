@@ -25,7 +25,7 @@ export class MainComponent implements OnInit {
       let codigo = params['code'];
       if (codigo != undefined) {
         this.api.autenticar(codigo).subscribe(()=>{
-          this.api.vendas({dia:12, mes:6, ano:2018}, {dia:20, mes:6, ano:2018});
+          //this.api.vendas({dia:12, mes:6, ano:2018}, {dia:20, mes:6, ano:2018});
         })
       }
 
@@ -37,6 +37,14 @@ export class MainComponent implements OnInit {
         icon: 'pi pi-plus-circle',
         command: () => {
           this.router.navigate(["main", { outlets: { main: ['calculadora'] } }])
+        }
+
+      },
+      {
+        label: 'Pedidos',
+        icon: 'pi pi-plus-circle',
+        command: () => {
+          this.router.navigate(["main", { outlets: { main: ['pedidos'] } }])
         }
 
       },
